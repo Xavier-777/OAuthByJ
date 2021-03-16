@@ -35,7 +35,7 @@ public class OAuthController {
         token token = httpUtils.tokenResponse(OAuthGiteeConst.user_code);   //获取到token令牌
         user user = httpUtils.Gitee_info(token.getAccess_token());        //使用Access_token获取用户信息
 
-        response.redirect("/views/welcome.html?id=" + user.getId() + "&name=" + user.getName() + "&login=" + user.getLogin() + "&Html_url=" + user.getHtml_url());
+        response.redirect("/views/welcome.html?id=" + user.getId() + "&login=" + user.getLogin() + "&Html_url=" + user.getHtml_url());
         return null;
     };
 }
