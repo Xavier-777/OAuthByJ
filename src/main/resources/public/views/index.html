@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a id="login">Login By Gitee</a>
+
+<script>
+    //fill in your client_id
+    const client_id = '0cacf35545c6723f98d887432c469431032b2140ad142fd7e8bb4cc9c54dc35c';
+
+    const authorize_uri = 'https://gitee.com/oauth/authorize';
+    const redirect_uri = 'http://localhost:8088/oauth/redirect';
+
+    const link = document.getElementById('login');
+    link.href = `${authorize_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code`;
+</script>
+
+</body>
+</html>
