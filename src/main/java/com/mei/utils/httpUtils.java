@@ -1,13 +1,12 @@
 package com.mei.utils;
 
-
 import com.google.gson.Gson;
 import com.mei.constant.OAuthGiteeConst;
 import com.mei.entity.token;
 import com.mei.entity.user;
 import org.apache.hc.client5.http.fluent.Request;
-
 import java.io.IOException;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 
 public class httpUtils {
@@ -44,7 +43,7 @@ public class httpUtils {
      */
     public static user Gitee_info(String access_token) throws IOException {
         String content = Request.get(OAuthGiteeConst.user_info(access_token))
-                .execute().returnContent().asString();
+                .execute().returnContent().asString(UTF_8);
         user user = new Gson().fromJson(content, user.class);
         return user;
     }

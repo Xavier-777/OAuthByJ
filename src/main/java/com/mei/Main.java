@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         port(8088);
         staticFiles.location("/public");
-        before("/*",(request, response) -> {
+        before((request, response) -> {
             response.header("Content-Type", "text/html;charset=UTF-8"); //设置编码，好像没有解决
         });
         OAuthController.init();

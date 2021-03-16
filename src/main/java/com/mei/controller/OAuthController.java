@@ -7,6 +7,8 @@ import com.mei.entity.user;
 import com.mei.utils.httpUtils;
 import spark.Route;
 
+import java.util.Base64;
+
 import static spark.Spark.get;
 
 
@@ -32,8 +34,8 @@ public class OAuthController {
         OAuthGiteeConst.user_code = request.queryParams("code");            //从URL中获取授权码
         token token = httpUtils.tokenResponse(OAuthGiteeConst.user_code);   //获取到token令牌
         user user = httpUtils.Gitee_info(token.getAccess_token());        //使用Access_token获取用户信息
-        System.out.println(user);
-        response.redirect("/views/welcome.html?id=" + user.getId() + "&login=" + user.getLogin() + "&Html_url=" + user.getHtml_url());
+
+        response.redirect("/views/welcome.html?id=" + user.getId() + "&name=" + user.getName() + "&login=" + user.getLogin() + "&Html_url=" + user.getHtml_url());
         return null;
     };
 }

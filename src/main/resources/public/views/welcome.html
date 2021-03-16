@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-welcome <font id="login"></font>; <br>
+welcome <font id="name"></font>; <br>
+your Gitee username is <font id="login"></font>; <br>
 your Gitee id is <font id="id"></font>; <br>
 your Gitee url is <a id="url"></a>
 
@@ -22,6 +23,7 @@ your Gitee url is <a id="url"></a>
         return (false);
     }
 
+    document.getElementById("name").innerHTML=getQueryVariable("name");
     document.getElementById("login").innerHTML=getQueryVariable("login");
     document.getElementById("id").innerHTML=getQueryVariable("id");
     document.getElementById("url").innerHTML=getQueryVariable("Html_url");
