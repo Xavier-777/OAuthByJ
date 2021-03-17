@@ -10,7 +10,7 @@ public class Main {
         staticFiles.location("/public");
         after((request, response) -> {
             if (request.cookie("passkey") == null) {
-                halt(401, "You are not welcome here");
+                halt(401, "You are not welcome here");  //过滤，防止用户恶意访问资源
             }
             response.header("Content-Type", "text/html;charset=UTF-8");
         });
