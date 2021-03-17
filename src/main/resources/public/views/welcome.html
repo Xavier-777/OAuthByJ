@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>welcome</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.post({
+                url: "http://localhost:8088/user/getInfo",
+                success: function (msg) {
+                    var msgJSON = JSON.parse(msg);
+                    $("#name").html("welcome：" + msgJSON.name);
+                    $("#login").html("your Gitee login name is：" + msgJSON.login);
+                    $("#id").html("your Gitee id is：" + msgJSON.id);
+                    $("#url").html(`your Gitee person's url is：<a href= "${msgJSON.html_url}">${msgJSON.html_url}</a>`);
+                }
+            })
+        })
+    </script>
 </head>
 <body>
-welcome <font id="login"></font>; <br>
-your Gitee id is <font id="id"></font>; <br>
-your Gitee url is <a id="url"></a>
 
-<script>
-    function getQueryVariable(variable) {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (pair[0] == variable) {
-                return pair[1];
-            }
-        }
-        return (false);
-    }
-
-    document.getElementById("login").innerHTML=getQueryVariable("login");
-    document.getElementById("id").innerHTML=getQueryVariable("id");
-    document.getElementById("url").innerHTML=getQueryVariable("Html_url");
-    document.getElementById("url").href=getQueryVariable("Html_url");
-</script>
+<div id="name"></div>
+<div id="login"></div>
+<div id="id"></div>
+<div id="url"></div>
 
 </body>
 </html>

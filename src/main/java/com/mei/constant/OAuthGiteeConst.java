@@ -1,5 +1,7 @@
 package com.mei.constant;
 
+import com.mei.entity.token;
+
 /**
  * Gitee的相关东西
  */
@@ -15,6 +17,11 @@ public final class OAuthGiteeConst {
      * 用户授权码
      */
     public static String user_code = null;
+
+    /**
+     * 令牌
+     */
+    public static token token = null;
 
     /**
      * @param code 用户授权授权码
